@@ -1,0 +1,10 @@
+C:\Users\b\source\repos\EineListe\EineListe\bin\Debug\EineListe.exe.config
+C:\Users\b\source\repos\EineListe\EineListe\bin\Debug\EineListe.exe
+C:\Users\b\source\repos\EineListe\EineListe\bin\Debug\EineListe.pdb
+C:\Users\b\source\repos\EineListe\EineListe\obj\Debug\EineListe.csprojAssemblyReference.cache
+C:\Users\b\source\repos\EineListe\EineListe\obj\Debug\EineListe.Form1.resources
+C:\Users\b\source\repos\EineListe\EineListe\obj\Debug\EineListe.Properties.Resources.resources
+C:\Users\b\source\repos\EineListe\EineListe\obj\Debug\EineListe.csproj.GenerateResource.cache
+C:\Users\b\source\repos\EineListe\EineListe\obj\Debug\EineListe.csproj.CoreCompileInputs.cache
+C:\Users\b\source\repos\EineListe\EineListe\obj\Debug\EineListe.exe
+C:\Users\b\source\repos\EineListe\EineListe\obj\Debug\EineListe.pdb
