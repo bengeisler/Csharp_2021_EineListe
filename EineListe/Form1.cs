@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,45 @@ namespace EineListe
 		private void btnBeenden_Click(object sender, EventArgs e)
 		{
 			Close();
+		}
+
+		private void btnSpeichern_Click(object sender, EventArgs e)
+		{
+			// Filestream-Objekt erstellen
+			FileStream fs = new FileStream("liste.txt", FileMode.Append);
+
+			// StreamWriter-Objekt erstellen
+			StreamWriter sw = new StreamWriter(fs);
+
+			// Jedes Element der Liste einzeln in die Datei schreiben
+			foreach (var item in lstListe.Items)
+			{
+				sw.WriteLine(item);
+			}
+
+			sw.Close();
+		}
+
+		private void btnLaden_Click(object sender, EventArgs e)
+		{
+			// FileStream-Objekt erstellen
+			FileStream fs = new FileStream("list.txt", FileMode.Open);
+
+			// StreamReader-Objekt erstellen
+			StreamReader sr = new StreamReader(fs);
+
+			string zeile;
+
+			// Datei Zeile für Zeile auslesen und jede Zeile
+			// als Item der Liste hinzufügen
+			while (sr.Peek() != -1)
+			{
+				zeile = sr.ReadLine();
+				lstListe.Items.Add(zeile);
+			}
+
+			// StreamReader schließen
+			sr.Close();
 		}
 	}
 }

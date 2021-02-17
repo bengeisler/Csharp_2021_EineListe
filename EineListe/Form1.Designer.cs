@@ -35,6 +35,8 @@ namespace EineListe
 			this.btnLöschen = new System.Windows.Forms.Button();
 			this.btnAlleLöschen = new System.Windows.Forms.Button();
 			this.btnBeenden = new System.Windows.Forms.Button();
+			this.btnLaden = new System.Windows.Forms.Button();
+			this.btnSpeichern = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// lstListe
@@ -92,11 +94,33 @@ namespace EineListe
 			this.btnBeenden.UseVisualStyleBackColor = true;
 			this.btnBeenden.Click += new System.EventHandler(this.btnBeenden_Click);
 			// 
+			// btnLaden
+			// 
+			this.btnLaden.Location = new System.Drawing.Point(259, 350);
+			this.btnLaden.Name = "btnLaden";
+			this.btnLaden.Size = new System.Drawing.Size(75, 23);
+			this.btnLaden.TabIndex = 6;
+			this.btnLaden.Text = "Laden";
+			this.btnLaden.UseVisualStyleBackColor = true;
+			this.btnLaden.Click += new System.EventHandler(this.btnLaden_Click);
+			// 
+			// btnSpeichern
+			// 
+			this.btnSpeichern.Location = new System.Drawing.Point(259, 380);
+			this.btnSpeichern.Name = "btnSpeichern";
+			this.btnSpeichern.Size = new System.Drawing.Size(75, 23);
+			this.btnSpeichern.TabIndex = 7;
+			this.btnSpeichern.Text = "Speichern";
+			this.btnSpeichern.UseVisualStyleBackColor = true;
+			this.btnSpeichern.Click += new System.EventHandler(this.btnSpeichern_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(427, 384);
+			this.ClientSize = new System.Drawing.Size(427, 412);
+			this.Controls.Add(this.btnSpeichern);
+			this.Controls.Add(this.btnLaden);
 			this.Controls.Add(this.btnBeenden);
 			this.Controls.Add(this.btnAlleLöschen);
 			this.Controls.Add(this.btnLöschen);
@@ -118,6 +142,8 @@ namespace EineListe
 		private System.Windows.Forms.Button btnLöschen;
 		private System.Windows.Forms.Button btnAlleLöschen;
 		private System.Windows.Forms.Button btnBeenden;
+		private System.Windows.Forms.Button btnLaden;
+		private System.Windows.Forms.Button btnSpeichern;
 	}
 }
 
