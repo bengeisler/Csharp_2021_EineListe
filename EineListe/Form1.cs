@@ -41,41 +41,56 @@ namespace EineListe
 
 		private void btnSpeichern_Click(object sender, EventArgs e)
 		{
-			// Filestream-Objekt erstellen
-			FileStream fs = new FileStream("liste.txt", FileMode.Append);
-
-			// StreamWriter-Objekt erstellen
-			StreamWriter sw = new StreamWriter(fs);
-
-			// Jedes Element der Liste einzeln in die Datei schreiben
-			foreach (var item in lstListe.Items)
+			try
 			{
-				sw.WriteLine(item);
-			}
+				// Filestream-Objekt erstellen
+				FileStream fs = new FileStream("liste.txt", FileMode.Append);
 
-			sw.Close();
+				// StreamWriter-Objekt erstellen
+				StreamWriter sw = new StreamWriter(fs);
+
+				// Jedes Element der Liste einzeln in die Datei schreiben
+				foreach (var item in lstListe.Items)
+				{
+					sw.WriteLine(item);
+				}
+
+				sw.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void btnLaden_Click(object sender, EventArgs e)
 		{
-			// FileStream-Objekt erstellen
-			FileStream fs = new FileStream("list.txt", FileMode.Open);
-
-			// StreamReader-Objekt erstellen
-			StreamReader sr = new StreamReader(fs);
-
-			string zeile;
-
-			// Datei Zeile für Zeile auslesen und jede Zeile
-			// als Item der Liste hinzufügen
-			while (sr.Peek() != -1)
+			// Dateizugriff immer innerhalb eines try-catch-Blocks verwenden!
+			try
 			{
-				zeile = sr.ReadLine();
-				lstListe.Items.Add(zeile);
-			}
+				// FileStream-Objekt erstellen
+				FileStream fs = new FileStream("list.txt", FileMode.Open);
 
-			// StreamReader schließen
-			sr.Close();
+				// StreamReader-Objekt erstellen
+				StreamReader sr = new StreamReader(fs);
+
+				string zeile;
+
+				// Datei Zeile für Zeile auslesen und jede Zeile
+				// als Item der Liste hinzufügen
+				while (sr.Peek() != -1)
+				{
+					zeile = sr.ReadLine();
+					lstListe.Items.Add(zeile);
+				}
+
+				// StreamReader schließen
+				sr.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 	}
 }
