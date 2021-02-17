@@ -44,7 +44,8 @@ namespace EineListe
 			try
 			{
 				// Filestream-Objekt erstellen
-				FileStream fs = new FileStream("liste.txt", FileMode.Append);
+				// Pfadangaben mit @ am Anfang
+				FileStream fs = new FileStream(@"\\Mac\Home\Documents\liste.txt", FileMode.Append);
 
 				// StreamWriter-Objekt erstellen
 				StreamWriter sw = new StreamWriter(fs);
@@ -69,7 +70,7 @@ namespace EineListe
 			try
 			{
 				// FileStream-Objekt erstellen
-				FileStream fs = new FileStream("list.txt", FileMode.Open);
+				FileStream fs = new FileStream(@"\\Mac\Home\Documents\liste.txt", FileMode.Open);
 
 				// StreamReader-Objekt erstellen
 				StreamReader sr = new StreamReader(fs);
