@@ -43,9 +43,20 @@ namespace EineListe
 		{
 			try
 			{
+				SaveFileDialog sfd = new SaveFileDialog()
+				{
+					InitialDirectory = @"C:\",
+					Filter = "Texte (*.txt)|*.txt|" + 
+					"Alle Dateien (*.*)|*.*",
+					Title = "Datei zum Speichern auswählen"
+				};
+
+				// Funktion verlassen, wenn nicht der Button "Speichern" gedrückt wurde
+				if (sfd.ShowDialog() != DialogResult.OK) return ;
+
 				// Filestream-Objekt erstellen
 				// Pfadangaben mit @ am Anfang
-				FileStream fs = new FileStream(@"\\Mac\Home\Documents\liste.txt", FileMode.Append);
+				FileStream fs = new FileStream(sfd.FileName, FileMode.Create);
 
 				// StreamWriter-Objekt erstellen
 				StreamWriter sw = new StreamWriter(fs);
@@ -69,13 +80,25 @@ namespace EineListe
 			// Dateizugriff immer innerhalb eines try-catch-Blocks verwenden!
 			try
 			{
+				var ofd = new OpenFileDialog()
+				{
+					InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+					Filter = "Texte (*.txt)|*.txt|" +
+					"Alle Dateien (*.*)|*.*",
+					Title = "Datei zum Öffnen auswählen"
+				};
+
+				// Prüfen, ob der Button "Öffnen" gedrückt wurde
+				if (ofd.ShowDialog() != DialogResult.OK) return;
+
 				// FileStream-Objekt erstellen
-				FileStream fs = new FileStream(@"\\Mac\Home\Documents\liste.txt", FileMode.Open);
+				FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
 
 				// StreamReader-Objekt erstellen
 				StreamReader sr = new StreamReader(fs);
 
 				string zeile;
+				lstListe.Items.Clear();
 
 				// Datei Zeile für Zeile auslesen und jede Zeile
 				// als Item der Liste hinzufügen
